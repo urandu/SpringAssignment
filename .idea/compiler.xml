@@ -25,6 +25,9 @@
         <module name="Judy" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Judy" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 
