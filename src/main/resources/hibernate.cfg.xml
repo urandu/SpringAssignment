@@ -4,10 +4,25 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url"/>
-    <property name="connection.driver_class"/>
-    <property name="connection.username"/>
-    <property name="connection.password"/>
+
+      <property name="hibernate.dialect">
+          org.hibernate.dialect.MySQLDialect
+      </property>
+
+    <property name="hibernate.connection.url"  >
+        http://localhost:3306/Judy
+    </property>
+    <property name="hibernate.connection.datasource">
+        org.springframework.jdbc.datasource.DriverManagerDataSource
+    </property>
+    <property name="hibernate.connection.username">
+        root
+    </property>
+    <property name="hibernate.connection.password">
+        in
+    </property>
+
+      <mapping package="com.Judy.controllers"></mapping>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>

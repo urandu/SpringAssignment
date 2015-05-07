@@ -10,7 +10,7 @@
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler />
 
-   <!-- <bean id="dataSource"
+    <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -37,7 +37,6 @@
             </props>
         </property>
     </bean>
-    -->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/pages/" />
         <property name="suffix" value=".jsp"/>

@@ -2,7 +2,6 @@ package com.Judy.controllers;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -12,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Pivot {
     @RequestMapping("/")
-    public String welcome(Model model)
+
+    public String welcome()
     {
         return "patients";
     }
