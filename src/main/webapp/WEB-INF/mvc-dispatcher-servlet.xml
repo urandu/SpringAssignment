@@ -3,7 +3,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.Judy.controllers"/>
 
@@ -20,6 +26,8 @@
     </bean>
 
 
+
+
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -27,7 +35,6 @@
             <list>
                 <value>com.Judy.models.Drug</value>
                 <value>com.Judy.models.Patient</value>
-
             </list>
         </property>
         <property name="hibernateProperties">
@@ -37,6 +44,30 @@
             </props>
         </property>
     </bean>
+    <bean id="sessionFactory2"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.Judy.models.Patient</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="drugDaoImpl" class="com.Judy.dao.impl.DrugDaoImpl" />
+    <bean id="drugServiceImpl" class="com.Judy.services.impl.DrugServiceImpl" />
+
+    <bean id="patientDaoImpl" class="com.Judy.dao.impl.PatientDaoImpl" />
+    <bean id="patientServiceImpl" class="com.Judy.services.impl.PatientServiceImpl" />
+
+
+
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/pages/" />
         <property name="suffix" value=".jsp"/>

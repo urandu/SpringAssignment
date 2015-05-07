@@ -18,12 +18,12 @@ import java.util.List;
  */
 public class PatientDaoImpl implements PatientDao {
     @Autowired
-    SessionFactory sessionFactory;
+    SessionFactory sessionFactory2;
 
     @Transactional
     @Override
     public int newPatient(Patient patient) {
-        Session session=sessionFactory.openSession();
+        Session session=sessionFactory2.openSession();
         Transaction transaction=session.beginTransaction();
         session.save(patient);
         transaction.commit();
@@ -38,7 +38,7 @@ public class PatientDaoImpl implements PatientDao {
     @Override
     public Patient getPatient(int patient_id) {
 
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory2.openSession();
         Criteria criteria = session.createCriteria(Patient.class);
         criteria.add(Restrictions.eq("patient_id", patient_id));
         Patient patient = (Patient) criteria.uniqueResult();
@@ -48,7 +48,7 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public List<Patient> getAllPatients() {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory2.openSession();
         //@SuppressWarnings("unchecked")
         List<Patient> patientList = session.createQuery("from Patient ").list();
         session.close();

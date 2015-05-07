@@ -4,12 +4,17 @@ package com.Judy.models;
  * Created by urandu on 5/7/15.
  */
 
+
+
 import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Table(name = "patients")
 public class Patient {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "patient_id")
     private int patient_id;
     @Column(name = "patient_fname")
